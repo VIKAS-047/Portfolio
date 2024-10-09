@@ -1,0 +1,415 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #141010;
+  background-color: #252525;
+}
+
+/* Header */
+
+header {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: #fff; 
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+  cursor: pointer; 
+}
+
+/* While Hovering */
+nav ul li a:hover {
+  color: #c50000; 
+  transform: scale(1.1);
+}
+
+
+/* Home Section with Background Video */
+#home {
+  position: relative;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+#home video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+  filter: brightness(0.5);
+  object-fit: cover;
+}
+
+.home-content {
+  z-index: 1;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+#home h1 {
+  font-size: 3rem;
+  animation: fadeIn 2s ease;
+  transition: transform 0.3s ease;
+}
+
+#home p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  animation: slideIn 2s ease;
+  transition: transform 0.3s ease;
+}
+
+#home:hover h1 {
+  transform: translateY(-10px); /* Moves the heading up on hover */
+}
+
+#home:hover p {
+  transform: translateY(-5px); /* Moves the paragraph up slightly on hover */
+}
+
+.scroll-down {
+  position: fixed;
+  bottom: 20px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  text-align: center; 
+  margin: 20px 0; 
+  font-size: 18px; 
+  color: #ffffff; /* Set text color to white */
+  opacity: 0.8; 
+  animation: bounce 1s infinite; 
+  cursor: pointer; 
+  z-index: 1000; 
+  transition: opacity 0.5s ease; /* Add transition for opacity change */
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px); 
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+
+
+/* About Me Section */
+#about {
+  padding: 80px 20px 60px 20px;
+  background-color: #dfddc7;
+  margin-top: 60px;
+}
+
+#about h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+#about h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background:#c50000;
+  margin: 10px auto 0;
+}
+
+.about-photo {
+  width: 180px;
+  border-radius: 8%;
+  margin: 20px auto; 
+  display: block; 
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.about-details {
+  list-style: none;
+  padding: 0;
+}
+
+.about-details li {
+  margin: 10px 0;
+  font-size: 1rem;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.about-details li:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+}
+
+
+#projects .project, #skills ul li {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-in-out;
+}
+
+#projects .project.visible, #skills ul li.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Projects Section */
+#projects {
+  padding: 80px 20px 60px 20px; /* Added top padding to account for fixed header */
+  background-color: #dfddc7;
+  margin-top: 60px;
+}
+
+#projects h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+#projects h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background:#c50000;
+  margin: 10px auto 0;
+}
+
+.project {
+  background: #cdbc8a;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 800px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tempo {
+  object-fit: contain;
+  height: 150px;
+  width: 250px;
+}
+
+.project:hover {
+  transform: translateY(-10px); 
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2); 
+}
+
+.project h3 {
+  margin-bottom: 10px;
+  color: #141010;
+}
+
+.project p {
+  color: #141010;
+}
+
+.no-underline {
+  text-decoration: none; 
+}
+
+
+/* Skills Section */
+#skills {
+  padding: 80px 20px 60px 20px; 
+  background-color: #dfddc7;
+  margin-top: 50px;
+}
+
+#skills h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+#skills h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background:#c50000;
+  margin: 10px auto 0;
+}
+
+#skills ul {
+  list-style: none;
+  text-align: center;
+}
+
+#skills ul li {
+  display: inline-block;
+  margin: 10px 20px;
+  padding: 10px 20px;
+  background-color: #141010;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+#skills ul li:hover {
+  background-color:#c50000;
+  color: #141010;
+  transform: scale(1.1); 
+}
+
+/* Contact Section */
+#contact {
+  padding: 80px 20px 60px 20px; 
+  background-color: #dfddc7;
+  margin-top: 50px;
+}
+
+#contact h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+#contact h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #c50000;
+  margin: 10px auto 0;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-icon {
+  width: 45px; /* Adjust size as needed */
+  margin: 0 15px; /* Space between icons */
+  transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Scroll button back to home-page */
+li a#openModal {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  padding:2px 10px; 
+}
+
+#openModal .social-icon {
+  width: 35px; /* Adjust size as needed */
+  margin: 4px 10px; /* Adjust margin as needed */
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #141010;
+  color: #fff;
+  position: relative;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  nav ul li {
+      display: block;
+      margin: 10px 0;
+  }
+
+  #home h1 {
+      font-size: 2.5rem;
+  }
+
+  #home p {
+      font-size: 1rem;
+  }
+
+  .project {
+      margin: 20px 10px;
+  }
+
+  #skills ul li {
+      display: block;
+      margin: 10px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  #home h1 {
+      font-size: 2rem;
+  }
+
+  #home p {
+      font-size: 0.9rem;
+  }
+
+  form {
+      padding: 20px;
+  }
+
+  .project {
+      padding: 15px;
+  }
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
